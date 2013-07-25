@@ -42,4 +42,4 @@ composer.phar
 composer.lock
 
 # www folder
-www/*
+/www/*

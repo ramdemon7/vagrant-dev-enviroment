@@ -29,7 +29,7 @@ class phpmyadmin
             ensure  => present,
             owner => root, group => root,
             notify  => Service['apache2'],
-            content => template('phpmyadmin/config.inc.php.erb'),
+            content => template("phpmyadmin/config.inc.php.erb"),
             # source  => "/vagrant/puppet/modules/phpmyadmin/templates/config.inc.php",
             require => [Package['phpmyadmin'], Package['apache2']],
     }
@@ -38,8 +38,9 @@ class phpmyadmin
         ensure => present,
         owner => root, group => 'www-data',
         notify => Service['apache2'],
-        content => template('phpmyadmin/config-db.php.erb'),
-        # soure => "/vagrant/puppet/modules/phpmyadmin/templates/config-db.php",
+        content => template("phpmyadmin/config-db.php.erb"),
+        # source => "/vagrant/puppet/modules/phpmyadmin/templates/config-db.php",
         require => [Package['phpmyadmin'], Package['apache2']],
+        mode => '0640',
     }
 }

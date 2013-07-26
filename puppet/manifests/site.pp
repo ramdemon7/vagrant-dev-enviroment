@@ -20,6 +20,7 @@ node 'www.botdemon.stage' {
   include phpmyadmin
   include apache_webserver
   include redis
+  include nodejs_init
   # include memcached
 
   include laravel_app

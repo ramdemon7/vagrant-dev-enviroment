@@ -1,10 +1,9 @@
 class phpmyadmin
 {
     require php_deps
-    include database_conf
 
-    $dbserver = $database_conf::dbserver
-    $dbport = $database_conf::dbport
+    $dbserver = '192.168.33.11'
+    $dbport = ''
 
     package
     {
@@ -40,7 +39,7 @@ class phpmyadmin
         owner => root, group => 'www-data',
         notify => Service['apache2'],
         content => template('phpmyadmin/config-db.php.erb'),
-        # source => "/vagrant/puppet/modules/phpmyadmin/templates/config-db.php",
+        # soure => "/vagrant/puppet/modules/phpmyadmin/templates/config-db.php",
         require => [Package['phpmyadmin'], Package['apache2']],
     }
 }

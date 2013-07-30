@@ -21,6 +21,7 @@ node 'www.botdemon.stage' {
   include apache_webserver
   include redis
   include nodejs_init
+  include ruby_init
   # include memcached
 
   include laravel_app
